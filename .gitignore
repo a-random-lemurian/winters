@@ -4,3 +4,4 @@ dist
 *.env
 *.secret.*
 *.secret
+__pycache__
