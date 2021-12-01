@@ -6,9 +6,10 @@ def cli():
     pass
 
 
-@click.group()
+@cli.group()
 def plug():
     pass
 
 
+import winters.pluginlist
 
