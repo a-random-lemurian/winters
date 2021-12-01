@@ -1,12 +1,12 @@
 import click
 
 
-@click.command()
+@click.group()
 def cli():
     pass
 
 
-@click.command()
+@click.group()
 def plug():
     pass
 
