@@ -10,3 +10,8 @@ Returns a list of plugins based on a file fetched [here](https://raw.githubuserc
 > `--format-style=<STYLE>`
 
 Optional argument for format style of plugin list. Supports `long` and `compact` (default).
+
+> - `-l <LIMIT>`
+> - `--limit <LIMIT>`
+
+Optional argument to limit number of items to show.

@@ -13,41 +13,49 @@ REGEX_DETECT_GIT_COMMIT_HASH = re.compile('[abcdefABCDEF0123456789]{7,40}')
 
 @app.command('ls')
 @click.option('--format-style', default="compact")
-def list_plugins(format_style):
-    determine_format_type(format_style)
-def get_plugins():
-    return requests.get(URL_GH_ESPLUGINS, headers=HEADERS)
-def determine_format_type(format_style):
+@click.option('-l', '--limit', default=0)
+def list_plugins(format_style, limit):
+
     if format_style not in VALID_FORMAT_STYLES:
         print('fatal: invalid format type {style}'.format(style=format_style))
         return(1)
 
-    if format_style == 'compact':
-        print_plugin_compact()
-    if format_style == 'long':
-        print_plugin_long()
-def print_plugin_compact():
-    for plugin in json.loads(get_plugins().text):
-        authors = plugin["authors"]
-        if isinstance(authors, list):
-            authors = f'Multiple ({len(authors)})'
+    print_plugins(limit, format_style)
+def get_plugins():
+    return requests.get(URL_GH_ESPLUGINS, headers=HEADERS)
+def print_plugins(limit, format_style):
+    for plugins_listed, plugin in enumerate(json.loads(get_plugins().text), start=1):
+        if (plugins_listed == limit+1 and
+            limit != 0):
+            exit()
 
-        version = plugin["version"]
-        if len(version) == 40: # It's a git commit hash.
-            version = version[:7]
-
-        print(f"{plugin['name']:<30}{version:<13}{authors}")
-def print_plugin_long():
-    for plugin in json.loads(get_plugins().text):
         authors = plugin["authors"]
+        version_info = plugin["version"]
+        version = version_info
+        if len(version) == 40:
+            version = version_info[:7]
+
         if isinstance(authors, list):
             authors_info = f'Multiple ({len(authors)}):'+', '.join(authors)
         else:
             authors_info = authors
 
-        print(f"{plugin['name']:<30}{plugin['version']:<13}"+"\n"+
-              f"By: {authors_info}"+"\n"+
-              f"{plugin['description']}"+"\n"+
-               "-"*40
-             )
+        if format_style == 'long':
+            long_plugin_print(plugin, authors, version)
+
+        if format_style == 'compact':
+            compact_plugin_print(plugin, authors, version)
+
+
+def compact_plugin_print(plugin, authors, version):
+    print(f"{plugin['name']:<30}{version:<13}{authors}")
+
+
+def long_plugin_print(plugin, authors, version):
+    print(f"{plugin['name']:<30}{version:<13}{authors}"+"\n"+
+                  f"By: {authors}"+"\n"+
+                  f"{plugin['description']}"+"\n"+
+                   "-"*40
+                 )
+
 #######################################################################
