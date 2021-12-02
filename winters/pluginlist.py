@@ -15,12 +15,8 @@ REGEX_DETECT_GIT_COMMIT_HASH = re.compile('[abcdefABCDEF0123456789]{7,40}')
 @click.option('--format-style', default="compact")
 def list_plugins(format_style):
     determine_format_type(format_style)
-
-
 def get_plugins():
     return requests.get(URL_GH_ESPLUGINS, headers=HEADERS)
-
-
 def determine_format_type(format_style):
     if format_style not in VALID_FORMAT_STYLES:
         print('fatal: invalid format type {style}'.format(style=format_style))
@@ -28,8 +24,6 @@ def determine_format_type(format_style):
 
     if format_style == 'compact':
         print_plugin_compact()
-
-
 def print_plugin_compact():
     for plugin in json.loads(get_plugins().text):
         authors = plugin["authors"]
@@ -41,5 +35,5 @@ def print_plugin_compact():
             version = version[:7]
 
         print(f"{plugin['name']:<30}{version:<13}{authors}")
-
+#######################################################################
 
