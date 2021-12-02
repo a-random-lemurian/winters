@@ -35,6 +35,11 @@ def print_plugin_compact():
         authors = plugin["authors"]
         if type(authors) == list:
             authors = f'Multiple ({len(authors)})'
-        print(f"{plugin['name']:<30}{plugin['version']:<45}{authors}")
+
+        version = plugin["version"]
+        if len(version) == 40: # It's a git commit hash.
+            version = version[:7]
+
+        print(f"{plugin['name']:<30}{version:<13}{authors}")
 
 
