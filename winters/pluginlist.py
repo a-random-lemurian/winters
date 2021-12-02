@@ -24,6 +24,8 @@ def determine_format_type(format_style):
 
     if format_style == 'compact':
         print_plugin_compact()
+    if format_style == 'long':
+        print_plugin_long()
 def print_plugin_compact():
     for plugin in json.loads(get_plugins().text):
         authors = plugin["authors"]
@@ -35,5 +37,17 @@ def print_plugin_compact():
             version = version[:7]
 
         print(f"{plugin['name']:<30}{version:<13}{authors}")
-#######################################################################
+def print_plugin_long():
+    for plugin in json.loads(get_plugins().text):
+        authors = plugin["authors"]
+        if isinstance(authors, list):
+            authors_info = f'Multiple ({len(authors)}):'+', '.join(authors)
+        else:
+            authors_info = authors
 
+        print(f"{plugin['name']:<30}{plugin['version']:<13}"+"\n"+
+              f"By: {authors_info}"+"\n"+
+              f"{plugin['description']}"+"\n"+
+               "-"*40
+             )
+#######################################################################
