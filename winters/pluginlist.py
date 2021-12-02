@@ -1,7 +1,7 @@
+import re
+import json
 import requests
 import click
-import json
-import re
 from winters.entry import plug as app
 
 
@@ -33,7 +33,7 @@ def determine_format_type(format_style):
 def print_plugin_compact():
     for plugin in json.loads(get_plugins().text):
         authors = plugin["authors"]
-        if type(authors) == list:
+        if isinstance(authors, list):
             authors = f'Multiple ({len(authors)})'
 
         version = plugin["version"]
