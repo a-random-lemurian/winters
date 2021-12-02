@@ -11,7 +11,7 @@ HEADERS = {"User-Agent": "winters | Endless Sky utility tool."}
 REGEX_DETECT_GIT_COMMIT_HASH = re.compile('[abcdefABCDEF0123456789]{7,40}')
 
 
-@app.command()
+@app.command('ls')
 @click.option('--format-style', default="compact")
 def list_plugins(format_style):
     determine_format_type(format_style)
