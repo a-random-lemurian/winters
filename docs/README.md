@@ -1,0 +1,1 @@
+Extended documentation for Winters, a miscellaneous command line utility for Endless Sky.
