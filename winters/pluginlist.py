@@ -13,7 +13,7 @@ REGEX_DETECT_GIT_COMMIT_HASH = re.compile('[abcdefABCDEF0123456789]{7,40}')
 
 @app.command()
 @click.option('--format-style')
-def list_plugins(format_style = 'compacty'):
+def list_plugins(format_style = 'compact'):
     determine_format_type(format_style)
 
 
