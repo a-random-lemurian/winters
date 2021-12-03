@@ -41,12 +41,14 @@ def print_plugins(limit, format_style):
         if format_style == "compact":
             compact_plugin_print(plugin, authors, version)
 
+
 def determine_version(plugin):
     version_info = plugin["version"]
     version = version_info
     if len(version) == 40:
         version = version_info[:7]
     return version
+
 
 def determine_authors(plugin):
     authors = plugin["authors"]
