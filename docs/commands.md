@@ -1,4 +1,6 @@
 # Commands
+> [Back to list](README.md)
+
 Documentation for commands.
 
 # `plug`
