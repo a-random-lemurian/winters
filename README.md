@@ -1,4 +1,6 @@
 # Winters
+[Extended docs](docs/README.md) | [Changelog](/CHANGELOG.md) | [Commands](/docs/commands.md) | [License](/COPYING)
+
 Miscellaneous utilities for a game known as [Endless Sky](https://github.com/endless-sky/endless-sky)
 
 For a list of commands, view the [extended documentation](docs/README.md).
