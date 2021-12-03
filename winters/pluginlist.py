@@ -52,11 +52,11 @@ def determine_version(plugin):
 
 def determine_authors(plugin):
     authors = plugin["authors"]
-    if isinstance(authors, list):
-        authors_info = f"Multiple ({len(authors)}):" + ", ".join(authors)
-    else:
-        authors_info = authors
-    return authors
+    return (
+        f"Multiple ({len(authors)}):" + ", ".join(authors)
+        if isinstance(authors, list)
+        else authors
+    )
 
 
 def compact_plugin_print(plugin, authors, version):
