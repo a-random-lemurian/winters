@@ -13,7 +13,7 @@ HEADERS = {"User-Agent": "winters | Endless Sky utility tool."}
 REGEX_DETECT_GIT_COMMIT_HASH = re.compile("[abcdefABCDEF0123456789]{7,40}")
 
 
-@app.command("ls")
+@app.command("ls", help="""Lists plugins which are listed in the community repository.""")
 @click.option("--format-style", default="compact")
 @click.option("-l", "--limit", default=0)
 def list_plugins(format_style, limit):
@@ -80,7 +80,7 @@ def long_plugin_print(plugin, authors, version):
 #######################################################################
 
 
-@app.command('lslocal')
+@app.command('lslocal', help='Lists locally installed plugins.')
 def list_local_plugins():
     plugins = check_for_es_folder()
     print('VCS  Plugin name')
