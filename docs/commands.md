@@ -22,3 +22,16 @@ Optional argument to limit number of items to show.
 **Syntax:** `winters plug lslocal`
 
 Returns a list of plugins installed on your computer, determined based on the folders in your Endless Sky data folder.
+
+## `new`
+**Syntax:** `winters plug new`
+
+Creates a new plugin directory on your computer's Endless Sky data folder, and it even initialises a new Git repository by default on your computer.
+
+> `--no-git`
+
+Do not initialize a Git repository.
+
+> `--no-gitignore`
+
+Do not create a `.gitignore` file. Invalid if specified with `--no-git`.

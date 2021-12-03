@@ -12,3 +12,4 @@ def plug():
 
 
 import winters.pluginlist
+import winters.pluginmaker
