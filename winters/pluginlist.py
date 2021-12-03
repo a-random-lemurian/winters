@@ -32,22 +32,29 @@ def print_plugins(limit, format_style):
         if plugins_listed == limit + 1 and limit != 0:
             exit()
 
-        authors = plugin["authors"]
-        version_info = plugin["version"]
-        version = version_info
-        if len(version) == 40:
-            version = version_info[:7]
-
-        if isinstance(authors, list):
-            authors_info = f"Multiple ({len(authors)}):" + ", ".join(authors)
-        else:
-            authors_info = authors
+        version = determine_version(plugin)
+        authors = determine_authors(plugin)
 
         if format_style == "long":
             long_plugin_print(plugin, authors, version)
 
         if format_style == "compact":
             compact_plugin_print(plugin, authors, version)
+
+def determine_version(plugin):
+    version_info = plugin["version"]
+    version = version_info
+    if len(version) == 40:
+        version = version_info[:7]
+    return version
+
+def determine_authors(plugin):
+    authors = plugin["authors"]
+    if isinstance(authors, list):
+        authors_info = f"Multiple ({len(authors)}):" + ", ".join(authors)
+    else:
+        authors_info = authors
+    return authors
 
 
 def compact_plugin_print(plugin, authors, version):
