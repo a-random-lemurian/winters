@@ -15,3 +15,8 @@ Optional argument for format style of plugin list. Supports `long` and `compact`
 > - `--limit <LIMIT>`
 
 Optional argument to limit number of items to show.
+
+## `lslocal`
+**Syntax:** `winters plug lslocal`
+
+Returns a list of plugins installed on your computer, determined based on the folders in your Endless Sky data folder.
