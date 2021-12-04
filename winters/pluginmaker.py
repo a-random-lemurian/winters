@@ -11,7 +11,7 @@ GIT_IGNORE_FILES = ["build/", "dist/", ".vscode/", ".DS_Store/",".winters/"]
 @click.argument('name', type=str)
 @click.option('--no-git',is_flag=True,help='do not initialize a git repository upon creation')
 @click.option('--no-gitignore',is_flag=True,help='do not create a .gitignore file upon creation')
-def create_plugin(name, no_git):
+def create_plugin(name, no_git, no_gitignore):
     make_plugin_folder(name)
 
     if not no_git:
