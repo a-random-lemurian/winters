@@ -38,5 +38,5 @@ def make_plugin_folder(name):
 
 
 def make_gitignore(plugin_path):
-    with open(os.path.join(plugin_path, '.gitignore')) as gitignore:
+    with open(os.path.join(plugin_path, '.gitignore'), 'r', encoding='utf8') as gitignore:
         gitignore.write('\n'.join(GIT_IGNORE_FILES))
