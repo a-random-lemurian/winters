@@ -1,5 +1,5 @@
 # Winters
-[Extended docs](docs/README.md) | [Changelog](/CHANGELOG.md) | [Commands](/docs/commands.md) | [License](/COPYING) | [**Endless Sky Discord**](https://discord.com/ZeuASSx) | [LEESt](https://lemuria-es.github.io/leest-docs) | [*Endless Sky Repository*](https://github.com/endless-sky/endless-sky)
+[Extended docs](docs/README.md) | [Changelog](/CHANGELOG.md) | [Commands](/docs/commands.md) | [License](/COPYING) | [**Endless Sky Discord**](https://discord.gg/ZeuASSx) | [LEESt](https://lemuria-es.github.io/leest-docs) | [*Endless Sky Repository*](https://github.com/endless-sky/endless-sky)
 
 Miscellaneous utilities for a game known as [Endless Sky](https://github.com/endless-sky/endless-sky)
 
