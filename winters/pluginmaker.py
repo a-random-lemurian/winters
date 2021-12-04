@@ -14,6 +14,13 @@ GIT_IGNORE_FILES = ["build/", "dist/", ".vscode/", ".DS_Store/",".winters/"]
 @click.option('--no-gitignore',is_flag=True,help='do not create a .gitignore file upon creation')
 @click.option('--force',is_flag=True,help='overwrite plugin directory on name conflict')
 def create_plugin(name, no_git, no_gitignore, force):
+    """
+    creates a new plugin folder in your
+    computer's Endless Sky data directory,
+    ready to edit and develop
+
+    NAME: name of new plugin to create.
+    """
 
     if force:
         print('WARNING: use of the --force flag is DANGEROUS and may result in loss of data.')
