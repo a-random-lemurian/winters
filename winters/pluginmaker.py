@@ -16,6 +16,7 @@ def create_plugin(name, no_git, no_gitignore):
 
     if not no_git:
         os.system('git init')
+    else:
         no_gitignore = True
 
     if not no_gitignore:
