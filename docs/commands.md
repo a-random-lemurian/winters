@@ -34,4 +34,4 @@ Creates a new plugin directory on your computer's Endless Sky data folder, and i
 
 > `--no-gitignore`
 >
-> Do not create a `.gitignore` file. Invalid if specified with `--no-git`.
+> Do not create a `.gitignore` file. `--no-gitignore` is ALWAYS true if `--no-git` is specified.
