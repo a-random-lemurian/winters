@@ -7,7 +7,6 @@ from winters.entry import plug as app
 
 GIT_IGNORE_FILES = ["build/", "dist/", ".vscode/", ".DS_Store/",".winters/"]
 
-
 @app.command('new')
 @click.argument('name', type=str)
 @click.option('--no-git',is_flag=True,help='do not initialize a git repository upon creation')
@@ -15,9 +14,9 @@ GIT_IGNORE_FILES = ["build/", "dist/", ".vscode/", ".DS_Store/",".winters/"]
 @click.option('--force',is_flag=True,help='overwrite plugin directory on name conflict')
 def create_plugin(name, no_git, no_gitignore, force):
     """
-    creates a new plugin folder in your
-    computer's Endless Sky data directory,
-    ready to edit and develop
+    Creates a new plugin folder in the
+    Endless Sky data directory,
+    ready to edit and develop.
 
     NAME: name of new plugin to create.
     """
