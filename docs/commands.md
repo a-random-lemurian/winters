@@ -1,5 +1,6 @@
+[Back to index](./README.md)
 # Commands
-> [Back to list](README.md)
+
 
 Documentation for commands.
 

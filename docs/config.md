@@ -1,3 +1,4 @@
+[Back to index](./README.md)
 # File paths
 ## Winters configuration files
 Winters looks for a configuration file named `.wintersrc` in the following directories. Directories at the top of the list are searched first and are the ideal places to put Winters config files. `<USERNAME>` is replaced with your actual username. Once again, Winters relies on the Python `appdirs` library to tell it where to find the configuration file.
