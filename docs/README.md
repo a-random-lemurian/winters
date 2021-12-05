@@ -2,4 +2,7 @@
 
 Extended documentation for Winters, a miscellaneous command line utility for Endless Sky.
 
+***
+
 - [Commands](./commands.md)
+- [Configuration](./config.md)
