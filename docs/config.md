@@ -23,4 +23,4 @@ Winters uses the Python `appdirs` library to determine the location of your Endl
 # Winters configuration file
 The Winters configuration file is named `.wintersrc`. The filepaths that Winters searches in is specified in the File paths section. Configuration options have not been implemented yet, but will be implemented in a future release.
 
-Configuration options have not been implemented yet, but will be implemented in a future release.
+Winters looks in plugin directories for a `Wintersconfig.yaml` file (case-sensitive), which is meant for plugin metadata, such as version, license, and name. In the case of conflict between `Wintersconfig.yaml` metadata and [this file](https://raw.githubusercontent.com/EndlessSkyCommunity/endless-sky-plugins/master/generated/plugins.json), `Wintersconfig.yaml` will take precedence unless specified by the file.
