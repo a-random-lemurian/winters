@@ -4,6 +4,7 @@ import requests
 import click
 import appdirs
 import os
+import winters.utilities as utils
 from winters.entry import plug as app
 
 
@@ -94,19 +95,8 @@ def list_local_plugins():
     for plugin in plugins:
         if os.path.isdir(os.path.join(appdirs.user_data_dir('endless-sky'), 'plugins', plugin)):
             folders = os.listdir(os.path.join(appdirs.user_data_dir('endless-sky'), 'plugins', plugin))
-            vcs_info = check_vcs(folders)
+            vcs_info = utils.check_vcs(folders)
             print(f'{vcs_info:<4} {plugin} ')
-
-
-def check_vcs(folders):
-    if '.git' in folders:
-        return 'Git'
-    elif '.svn' in folders:
-        return 'SVN'
-    elif '.hg' in folders:
-        return 'HG'
-    else:
-        return ''
 
 
 def check_for_es_folder():
