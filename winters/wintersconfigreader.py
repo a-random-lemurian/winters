@@ -3,6 +3,6 @@
 import yaml
 
 
-def winterscfg(path):
+def read_wintersconfig(path):
     with open(path, 'r') as winterscfg:
         return yaml.safe_load(winterscfg)
