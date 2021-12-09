@@ -57,3 +57,31 @@ def make_plugin_folder(name, force):
 def make_gitignore(plugin_path):
     with open(os.path.join(plugin_path, '.gitignore'), 'x', encoding='UTF-8') as gitignore:
         gitignore.write('\n'.join(GIT_IGNORE_FILES))
+
+
+def make_wintersconfig(plugin_path, plugin_name):
+    plugin_path = plugin_path + 'Wintersconfig.yaml'
+    create_wintersconfig(plugin_path,
+        {
+            'name': plugin_name,
+            'version': 'v0.1.0',
+
+            'mainAuthor': input(textwrap.dedent(
+                '''
+                Please enter your name. \n \
+                You may use a psuedonym or screen name. \n \
+                This name will be credited as the main author. \n \
+                Name: ''')),
+
+            'spdx-license-id': input(textwrap.dedent(
+                '''
+                Please type the SPDX license identifier \n \
+                for the license you wish to use in your \n \
+                project.
+                Identifier: ''')),
+
+            'source-control': {
+                'system': 'git'
+            }
+        }
+    )
