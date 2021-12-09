@@ -1,8 +1,10 @@
 import os
+import textwrap
 import appdirs
 import click
 import shutil
 from winters.entry import plug as app
+from winters.wintersconfigreader import create_wintersconfig
 
 
 GIT_IGNORE_FILES = ["build/", "dist/", ".vscode/", ".DS_Store/",".winters/"]
@@ -11,8 +13,9 @@ GIT_IGNORE_FILES = ["build/", "dist/", ".vscode/", ".DS_Store/",".winters/"]
 @click.argument('name', type=str)
 @click.option('--no-git',is_flag=True,help='do not initialize a git repository upon creation')
 @click.option('--no-gitignore',is_flag=True,help='do not create a .gitignore file upon creation')
+@click.option('--no-winters',is_flag=True,help='do not create a Wintersconfig.yaml file upon creation')
 @click.option('--force',is_flag=True,help='overwrite plugin directory on name conflict')
-def create_plugin(name, no_git, no_gitignore, force):
+def create_plugin(name, no_git, no_gitignore, no_winters, force):
     """
     Creates a new plugin folder in the
     Endless Sky data directory,
@@ -33,6 +36,9 @@ def create_plugin(name, no_git, no_gitignore, force):
 
     if not no_gitignore:
         make_gitignore(get_plugin_path(name))
+
+    if not no_winters:
+        make_wintersconfig(get_plugin_path(name), name)
 
     print('success: created plugin folder')
 
