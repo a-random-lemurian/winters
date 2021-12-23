@@ -66,7 +66,7 @@ def make_gitignore(plugin_path):
 
 
 def make_wintersconfig(plugin_path, plugin_name):
-    plugin_path = plugin_path + 'Wintersconfig.yaml'
+    plugin_path = plugin_path + '/Wintersconfig.yaml'
     create_wintersconfig(plugin_path,
         {
             'name': plugin_name,
