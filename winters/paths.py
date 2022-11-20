@@ -1,6 +1,6 @@
 # Path processing.
 import appdirs
 import os
-import yaml
+import json
 
-GLOBAL_CONFIG = yaml.load(os.path.join(appdirs.user_config_dir('winters'), '.wintersrc'))
+GLOBAL_CONFIG = json.load(os.path.join(appdirs.user_config_dir('winters'), '.wintersrc'))
