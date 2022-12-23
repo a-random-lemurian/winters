@@ -27,6 +27,7 @@ def list_plugins(format_style, limit):
 
     if format_style not in VALID_FORMAT_STYLES:
         print("fatal: invalid format type {style}".format(style=format_style))
+        print("valid formats: "+' '.join(VALID_FORMAT_STYLES))
         return 1
 
     print_plugins(limit, format_style)
